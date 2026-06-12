@@ -14,31 +14,52 @@ item.classList.add("active");
 
 });
 
-const counters=document.querySelectorAll(".count");
+const counters = document.querySelectorAll(".count");
 
-counters.forEach(counter=>{
+let started = false;
 
-const update=()=>{
+window.addEventListener("scroll", () => {
 
-const target=+counter.getAttribute("data-target");
-const current=+counter.innerText;
+const section = document.querySelector(".counter-section");
 
-const increment=target/100;
+if(!section) return;
 
-if(current<target){
+const top = section.getBoundingClientRect().top;
 
-counter.innerText=Math.ceil(current+increment);
+if(top < window.innerHeight - 100 && !started){
 
-setTimeout(update,20);
+started = true;
+
+counters.forEach(counter => {
+
+const target = +counter.dataset.target;
+
+let current = 0;
+
+const speed = target / 50;
+
+const update = () => {
+
+current += speed;
+
+if(current < target){
+
+counter.innerText = Math.floor(current);
+
+requestAnimationFrame(update);
 
 }else{
 
-counter.innerText=target;
+counter.innerText = target;
 
 }
 
-}
+};
 
 update();
+
+});
+
+}
 
 });
