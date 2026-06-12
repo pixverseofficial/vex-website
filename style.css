@@ -187,9 +187,6 @@ backdrop-filter:blur(25px);
 border:1px solid rgba(255,255,255,.08);
 border-radius:25px;
 padding:35px;
-}
-
-.testimonial{
 max-width:320px;
 margin:auto;
 }
