@@ -63,3 +63,25 @@ update();
 }
 
 });
+
+const aboutLink = document.querySelector('a[href="about.html"]');
+
+if(aboutLink){
+
+    aboutLink.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        document
+            .querySelector(".page-transition")
+            .classList.add("active");
+
+        setTimeout(() => {
+
+            window.location.href = "about.html";
+
+        }, 800);
+
+    });
+
+}
