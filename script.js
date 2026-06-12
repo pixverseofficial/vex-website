@@ -85,3 +85,47 @@ if(aboutLink){
     });
 
 }
+.page-transition{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.page-transition img{
+    width:250px;
+    opacity:0;
+}
+
+.page-transition.active{
+    opacity:1;
+}
+
+.page-transition.active img{
+    animation:logoTransition .8s ease forwards;
+}
+
+@keyframes logoTransition{
+
+    0%{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    40%{
+        transform:scale(1);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1.3);
+        opacity:0;
+    }
+
+}
