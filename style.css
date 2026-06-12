@@ -170,6 +170,7 @@ border-radius:25px;
 padding:35px;
 transition:.4s;
 overflow:hidden;
+text-align:center;
 }
 
 .card:hover{
