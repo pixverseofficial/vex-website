@@ -1,0 +1,289 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - VEX Creative Designs</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- NAVBAR -->
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="canva-pro.html">Canva Pro</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<img src="logo.png" alt="VEX Logo">
+
+<div class="tagline">
+OUR PORTFOLIO
+</div>
+
+<h1>
+Creative Work<br>
+By VEX
+</h1>
+
+<p>
+VEX Creative Designs is a creative studio focused on branding,
+social media design, logo creation and modern website development.
+
+Every project is designed with creativity, strategy and attention
+to detail to help businesses grow and stand out online.
+
+Explore some of our featured work below.
+</p>
+
+</section>
+
+<!-- POSTER DESIGNS -->
+
+<section class="reveal">
+
+<h2 class="title">Poster Designs</h2>
+
+<p class="subtitle">
+Creative social media and promotional designs.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="poster1.jpg" class="portfolio-img" alt="">
+<h3>Restaurant Promotion</h3>
+<p>Creative promotional poster for social media marketing.</p>
+</div>
+
+<div class="card">
+<img src="poster2.jpg" class="portfolio-img" alt="">
+<h3>Product Campaign</h3>
+<p>High-engagement product advertisement design.</p>
+</div>
+
+<div class="card">
+<img src="poster3.jpg" class="portfolio-img" alt="">
+<h3>Event Poster</h3>
+<p>Modern event promotion designed for maximum reach.</p>
+</div>
+
+<div class="card">
+<img src="poster4.jpg" class="portfolio-img" alt="">
+<h3>Business Promotion</h3>
+<p>Brand awareness campaign creative.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- LOGO DESIGNS -->
+
+<section class="reveal">
+
+<h2 class="title">Logo Designs</h2>
+
+<p class="subtitle">
+Unique visual identities created for brands.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="logo1.jpg" class="portfolio-img" alt="">
+<h3>Tech Startup</h3>
+<p>Modern logo design for a technology company.</p>
+</div>
+
+<div class="card">
+<img src="logo2.jpg" class="portfolio-img" alt="">
+<h3>Coffee Brand</h3>
+<p>Minimal logo crafted for a premium cafe.</p>
+</div>
+
+<div class="card">
+<img src="logo3.jpg" class="portfolio-img" alt="">
+<h3>Fitness Brand</h3>
+<p>Strong and bold visual identity.</p>
+</div>
+
+<div class="card">
+<img src="logo4.jpg" class="portfolio-img" alt="">
+<h3>Luxury Business</h3>
+<p>Elegant branding concept and logo system.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- WEBSITE DESIGNS -->
+
+<section class="reveal">
+
+<h2 class="title">Website Designs</h2>
+
+<p class="subtitle">
+Responsive and modern websites built for growth.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="web1.jpg" class="portfolio-img" alt="">
+<h3>Business Website</h3>
+<p>Professional online presence for businesses.</p>
+</div>
+
+<div class="card">
+<img src="web2.jpg" class="portfolio-img" alt="">
+<h3>Portfolio Website</h3>
+<p>Clean and modern portfolio experience.</p>
+</div>
+
+<div class="card">
+<img src="web3.jpg" class="portfolio-img" alt="">
+<h3>E-Commerce Design</h3>
+<p>Modern shopping interface and layout.</p>
+</div>
+
+<div class="card">
+<img src="web4.jpg" class="portfolio-img" alt="">
+<h3>Agency Landing Page</h3>
+<p>Conversion-focused landing page design.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="reveal">
+
+<h2 class="title">
+Ready To Start Your Project?
+</h2>
+
+<p class="subtitle">
+Let's create something amazing together.
+</p>
+
+<div style="text-align:center">
+
+<button class="btn primary" onclick="openForm()">
+Get Started
+</button>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3 class="footer-title">VEX Creative Designs</h3>
+<p>Imagine • Design • Inspire</p>
+</div>
+
+<div>
+<h3 class="footer-title">Services</h3>
+<p>Poster Design</p>
+<p>Logo Design</p>
+<p>Website Design</p>
+<p>Canva Pro</p>
+</div>
+
+<div>
+<h3 class="footer-title">Quick Links</h3>
+<p>Home</p>
+<p>About</p>
+<p>Services</p>
+<p>Portfolio</p>
+</div>
+
+<div>
+<h3 class="footer-title">Contact</h3>
+<p>vexcreativedesigns@gmail.com</p>
+<p>Kerala, India</p>
+</div>
+
+</div>
+
+<br>
+
+<center>
+<p>© 2025 VEX Creative Designs. All Rights Reserved.</p>
+</center>
+
+</footer>
+
+<!-- POPUP FORM -->
+
+<div class="popup-form" id="popupForm">
+
+<div class="form-box">
+
+<span class="close-btn" onclick="closeForm()">✕</span>
+
+<h2>Start Your Project</h2>
+
+<form id="projectForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+
+<input type="email" id="email" placeholder="Email Address" required>
+
+<input type="tel" id="phone" placeholder="Mobile Number" required>
+
+<input type="text" id="brand" placeholder="Business / Brand Name">
+
+<select id="service">
+<option>Poster Design</option>
+<option>Logo Design</option>
+<option>Website Design</option>
+<option>Social Media Design</option>
+<option>Canva Pro Access</option>
+<option>Complete Branding</option>
+</select>
+
+<textarea id="details"
+placeholder="Describe your project..."
+rows="5"></textarea>
+
+<button type="button"
+class="btn primary"
+onclick="sendWhatsApp()">
+Send Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
