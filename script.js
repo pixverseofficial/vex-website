@@ -63,3 +63,43 @@ update();
 }
 
 });
+
+// POPUP FORM
+
+function openForm() {
+    document.getElementById("popupForm").style.display = "flex";
+}
+
+function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+}
+
+function sendWhatsApp() {
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const brand = document.getElementById("brand").value;
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("details").value;
+
+    const message =
+`*NEW PROJECT REQUEST*
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Brand: ${brand}
+
+Service: ${service}
+
+Project Details:
+${details}`;
+
+    const whatsappNumber = "918891404464";
+
+    const url =
+`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+}
