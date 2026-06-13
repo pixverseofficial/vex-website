@@ -316,3 +316,83 @@ filter:blur(80px);
 z-index:-1;
 }
 
+/* POPUP FORM */
+
+.popup-form{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(10px);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.form-box{
+    width:90%;
+    max-width:550px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    padding:35px;
+    position:relative;
+    animation:popupShow .3s ease;
+}
+
+@keyframes popupShow{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.form-box h2{
+    text-align:center;
+    color:#ff4fd8;
+    margin-bottom:25px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-family:'Poppins',sans-serif;
+    box-sizing:border-box;
+}
+
+.form-box textarea{
+    resize:none;
+}
+
+.form-box select option{
+    color:black;
+}
+
+.close-btn{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:24px;
+    cursor:pointer;
+    color:white;
+}
+
+.close-btn:hover{
+    color:#ff4fd8;
+}
