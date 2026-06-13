@@ -205,7 +205,7 @@ Let's create something amazing together.
 
 <div style="text-align:center">
 
-<a href="#" class="btn primary" onclick="openForm()">
+<a href="javascript:void(0)" class="btn primary" onclick="openForm()">
 Get Started
 </a>
 
@@ -301,53 +301,54 @@ Follow @vexdesigns.official
 
 </footer>
 
-<script src="script.js"></script>
+<!-- POPUP FORM -->
 
-  <div class="popup-form" id="popupForm">
+<div class="popup-form" id="popupForm">
 
 <div class="form-box">
 
-<span class="close-btn" onclick="closeForm()">✕</span>
+    <span class="close-btn" onclick="closeForm()">✕</span>
 
-<h2>Start Your Project</h2>
+    <h2>Start Your Project</h2>
 
-<form id="projectForm">
+    <form id="projectForm">
 
-<input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="name" placeholder="Full Name" required>
 
-<input type="email" id="email" placeholder="Email Address" required>
+        <input type="email" id="email" placeholder="Email Address" required>
 
-<input type="tel" id="phone" placeholder="Mobile Number" required>
+        <input type="tel" id="phone" placeholder="Mobile Number" required>
 
-<input type="text" id="brand" placeholder="Business / Brand Name">
+        <input type="text" id="brand" placeholder="Business / Brand Name">
 
-<select id="service">
+        <select id="service">
+            <option>Poster Design</option>
+            <option>Logo Design</option>
+            <option>Website Design</option>
+            <option>Social Media Design</option>
+            <option>Canva Pro Access</option>
+            <option>Complete Branding</option>
+        </select>
 
-<option>Poster Design</option>
-<option>Logo Design</option>
-<option>Website Design</option>
-<option>Social Media Design</option>
-<option>Canva Pro Access</option>
-<option>Complete Branding</option>
+        <textarea
+            id="details"
+            placeholder="Describe your project..."
+            rows="5"></textarea>
 
+        <button
+            type="button"
+            class="btn primary"
+            onclick="sendWhatsApp()">
+            Send Request
+        </button>
 
-<textarea id="details"
-placeholder="Describe your project..."
-rows="5"></textarea>
+    </form>
 
-<button type="button"
-class="btn primary"
-onclick="sendWhatsApp()">
-
-Send Request
-
-</button>
-
-</form>
+</div>
 
 </div>
 
-</div>
+<script src="script.js"></script>
 
 </body>
 </html>
