@@ -414,3 +414,21 @@ overflow:hidden;
 transform:scale(1.05);
 transition:0.4s;
 }
+.contact-logo{
+width:140px;
+height:140px;
+margin:25px auto;
+border-radius:50%;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+backdrop-filter:blur(20px);
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 0 30px rgba(255,0,150,.15);
+}
+
+.contact-logo img{
+width:90px;
+height:auto;
+}
