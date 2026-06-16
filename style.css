@@ -440,3 +440,14 @@ animation:none;
 word-wrap:break-word;
 overflow-wrap:break-word;
 }
+.features-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+@media(max-width:768px){
+.features-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
