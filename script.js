@@ -1,105 +1,163 @@
-const reveals=document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll",()=>{
+"use strict";
 
-reveals.forEach(item=>{
+/* ======================================
+   VEX CREATIVE DESIGNS
+   Main Website JavaScript
+====================================== */
 
-const top=item.getBoundingClientRect().top;
+const WHATSAPP_NUMBER = "918891404464";
 
-if(top<window.innerHeight-100){
-item.classList.add("active");
+/* ======================================
+   SCROLL REVEAL ANIMATIONS
+====================================== */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach((item) => {
+    const top = item.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      item.classList.add("active");
+    }
+  });
 }
 
+window.addEventListener("scroll", revealOnScroll, {
+  passive: true
 });
 
-});
+// Show visible sections on page load
+revealOnScroll();
+
+/* ======================================
+   ANIMATED ACHIEVEMENT COUNTERS
+====================================== */
 
 const counters = document.querySelectorAll(".count");
 
-let started = false;
+let countersStarted = false;
 
-window.addEventListener("scroll", () => {
+function startCounters() {
+  const section = document.querySelector(".counter-section");
 
-const section = document.querySelector(".counter-section");
+  if (!section || countersStarted) return;
 
-if(!section) return;
+  const top = section.getBoundingClientRect().top;
 
-const top = section.getBoundingClientRect().top;
+  if (top < window.innerHeight - 100) {
+    countersStarted = true;
 
-if(top < window.innerHeight - 100 && !started){
+    counters.forEach((counter) => {
+      const target = Number(counter.dataset.target);
 
-started = true;
+      if (!Number.isFinite(target) || target < 0) {
+        return;
+      }
 
-counters.forEach(counter => {
+      let current = 0;
+      const speed = target / 50;
 
-const target = +counter.dataset.target;
+      function updateCounter() {
+        current += speed;
 
-let current = 0;
+        if (current < target) {
+          counter.innerText = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.innerText = target;
+        }
+      }
 
-const speed = target / 50;
-
-const update = () => {
-
-current += speed;
-
-if(current < target){
-
-counter.innerText = Math.floor(current);
-
-requestAnimationFrame(update);
-
-}else{
-
-counter.innerText = target;
-
+      updateCounter();
+    });
+  }
 }
 
-};
-
-update();
-
+window.addEventListener("scroll", startCounters, {
+  passive: true
 });
 
-}
+startCounters();
 
-});
-
-// POPUP FORM
+/* ======================================
+   PROJECT REQUEST POPUP
+====================================== */
 
 function openForm() {
-    document.getElementById("popupForm").style.display = "flex";
+  const popup = document.getElementById("popupForm");
+
+  if (!popup) return;
+
+  popup.style.display = "flex";
 }
 
 function closeForm() {
-    document.getElementById("popupForm").style.display = "none";
+  const popup = document.getElementById("popupForm");
+
+  if (!popup) return;
+
+  popup.style.display = "none";
 }
 
+/* ======================================
+   CLOSE POPUP WITH ESCAPE KEY
+====================================== */
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeForm();
+  }
+});
+
+/* ======================================
+   SEND PROJECT REQUEST TO WHATSAPP
+====================================== */
+
 function sendWhatsApp() {
+  const form = document.getElementById("projectForm");
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const brand = document.getElementById("brand").value;
-    const service = document.getElementById("service").value;
-    const details = document.getElementById("details").value;
+  if (!form) {
+    console.error("VEX project form not found.");
+    return;
+  }
 
-    const message =
-`*NEW PROJECT REQUEST*
+  // Validate required fields before sending
+  if (!form.reportValidity()) {
+    return;
+  }
 
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Brand: ${brand}
+  const name = document.getElementById("name")?.value.trim() || "";
+  const email = document.getElementById("email")?.value.trim() || "";
+  const phone = document.getElementById("phone")?.value.trim() || "";
+  const brand = document.getElementById("brand")?.value.trim() || "";
+  const service = document.getElementById("service")?.value || "";
+  const details = document.getElementById("details")?.value.trim() || "";
 
-Service: ${service}
+  const message = [
+    "*VEX CREATIVE DESIGNS*",
+    "*NEW PROJECT REQUEST*",
+    "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    `Phone: ${phone}`,
+    `Brand: ${brand || "Not provided"}`,
+    "",
+    `Service: ${service}`,
+    "",
+    "*Project Details:*",
+    details || "Not provided"
+  ].join("\n");
 
-Project Details:
-${details}`;
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-    const whatsappNumber = "918891404464";
+  // Open WhatsApp in a new tab
+  const newWindow = window.open(url, "_blank");
 
-    const url =
-`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
+  // Fallback when popup is blocked
+  if (!newWindow) {
+    window.location.href = url;
+  }
 }
